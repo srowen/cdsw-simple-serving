@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<PMML version="4.3" xmlns="http://www.dmg.org/PMML-4_3">
+    <Header>
+        <Application name="ACME Occupancy Detection"/>
+        <Timestamp>2017-03-26T21:50:48Z</Timestamp>
+    </Header>
+    <DataDictionary>
+        <DataField name="Temperature" optype="continuous" dataType="double"/>
+        <DataField name="Humidity" optype="continuous" dataType="double"/>
+        <DataField name="Light" optype="continuous" dataType="double"/>
+        <DataField name="CO2" optype="continuous" dataType="double"/>
+        <DataField name="HumidityRatio" optype="continuous" dataType="double"/>
+        <DataField name="Occupancy" optype="categorical" dataType="integer">
+            <Value value="0"/>
+            <Value value="1"/>
+        </DataField>
+    </DataDictionary>
+    <RegressionModel functionName="classification" normalizationMethod="softmax">
+        <MiningSchema>
+            <MiningField name="Occupancy" usageType="target"/>
+            <MiningField name="Temperature"/>
+            <MiningField name="Humidity"/>
+            <MiningField name="Light"/>
+            <MiningField name="CO2"/>
+            <MiningField name="HumidityRatio"/>
+        </MiningSchema>
+        <Output>
+            <OutputField name="probability_0" optype="continuous" dataType="double" feature="probability" value="0"/>
+            <OutputField name="probability_1" optype="continuous" dataType="double" feature="probability" value="1"/>
+        </Output>
+        <RegressionTable intercept="16.121752149952" targetCategory="1">
+            <NumericPredictor name="Temperature" coefficient="-1.239411520229105"/>
+            <NumericPredictor name="Humidity" coefficient="0.040079547154413746"/>
+            <NumericPredictor name="Light" coefficient="0.020182888698828436"/>
+            <NumericPredictor name="CO2" coefficient="0.0060762157896669"/>
+            <NumericPredictor name="HumidityRatio" coefficient="-500.42306896474247"/>
+        </RegressionTable>
+        <RegressionTable intercept="0.0" targetCategory="0"/>
+    </RegressionModel>
+</PMML>

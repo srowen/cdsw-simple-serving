@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <artifactId>acme-datasci</artifactId>
+  <version>1.0.0</version>
+  <packaging>jar</packaging>
+  <name>ACME Data Science</name>
+
+  <parent>
+    <groupId>com.cloudera.datascience.cdsw.acme</groupId>
+    <artifactId>cdsw-simple-serving</artifactId>
+    <version>1.0.0</version>
+  </parent>
+  
+  <dependencies>
+    <dependency>
+      <groupId>com.cloudera.datascience.cdsw.acme</groupId>
+      <artifactId>acme-dataeng</artifactId>
+      <version>1.0.0</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.scala-lang</groupId>
+      <artifactId>scala-library</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.spark</groupId>
+      <artifactId>spark-sql_${scala.minor.version}</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.spark</groupId>
+      <artifactId>spark-mllib_${scala.minor.version}</artifactId>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>net.alchim31.maven</groupId>
+        <artifactId>scala-maven-plugin</artifactId>
+      </plugin>
+    </plugins>
+  </build>
+  
+</project>
