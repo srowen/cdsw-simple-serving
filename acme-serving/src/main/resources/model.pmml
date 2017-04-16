@@ -2,7 +2,7 @@
 <PMML version="4.3" xmlns="http://www.dmg.org/PMML-4_3">
     <Header>
         <Application name="ACME Occupancy Detection"/>
-        <Timestamp>2017-03-26T21:50:48Z</Timestamp>
+        <Timestamp>2017-04-16T19:27:32Z</Timestamp>
     </Header>
     <DataDictionary>
         <DataField name="Temperature" optype="continuous" dataType="double"/>
@@ -28,12 +28,12 @@
             <OutputField name="probability_0" optype="continuous" dataType="double" feature="probability" value="0"/>
             <OutputField name="probability_1" optype="continuous" dataType="double" feature="probability" value="1"/>
         </Output>
-        <RegressionTable intercept="16.121752149952" targetCategory="1">
-            <NumericPredictor name="Temperature" coefficient="-1.239411520229105"/>
-            <NumericPredictor name="Humidity" coefficient="0.040079547154413746"/>
-            <NumericPredictor name="Light" coefficient="0.020182888698828436"/>
-            <NumericPredictor name="CO2" coefficient="0.0060762157896669"/>
-            <NumericPredictor name="HumidityRatio" coefficient="-500.42306896474247"/>
+        <RegressionTable intercept="-1.2921253278089497" targetCategory="1">
+            <NumericPredictor name="Temperature" coefficient="-0.4465830660919496"/>
+            <NumericPredictor name="Humidity" coefficient="0.09646605263619809"/>
+            <NumericPredictor name="Light" coefficient="0.01954270227449501"/>
+            <NumericPredictor name="CO2" coefficient="0.004334827871425256"/>
+            <NumericPredictor name="HumidityRatio" coefficient="-347.38017320675465"/>
         </RegressionTable>
         <RegressionTable intercept="0.0" targetCategory="0"/>
     </RegressionModel>
