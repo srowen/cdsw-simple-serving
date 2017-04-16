@@ -37,34 +37,32 @@ It can also be tested locally with simply `mvn test` at the top level.
 
 Given a PMML description of the model, it's easy to deploy it as a REST API with
 [OpenScoring](https://github.com/openscoring/openscoring). 
-Start the compiled openscoring server binary:
+Start the compiled openscoring server binary in the background, 
+possibly choosing a less-common port like 8081 to run on:
 
 ```bash
-java -jar bin/server-executable-*.jar
+java -jar bin/server-executable-*.jar --port 8081 &
 ```
 
-Load the current model:
+Load the current model using `curl` and the JSON API:
 
 ```bash
-java -cp bin/client-executable-*.jar org.openscoring.client.Deployer \
-  --model http://localhost:8080/openscoring/model/OccupancyDetection \
-  --file src/main/resources/model.pmml
+curl -X PUT --data-binary @src/main/resources/model.pmml \
+ -H "Content-type: text/xml" \
+ http://localhost:8081/openscoring/model/OccupancyDetection
 ```
 
 Try scoring an instance:
 
 ```bash
-java -cp bin/client-executable-*.jar org.openscoring.client.Evaluator \
-  --model http://localhost:8080/openscoring/model/OccupancyDetection \
-  -XTemperature=20.89 \
-  -XHumidity=27 \
-  -XLight=14 \
-  -XCO2=1427 \
-  -XHumidityRatio=0.00412229841538944
+curl -X POST --data-binary \
+  '{"arguments":{"Temperature":20.89, "Humidity":27, "Light":14, "CO2":1427, "HumidityRatio":0.004122}}' \
+  -H "Content-type: application/json" \
+  http://localhost:8081/openscoring/model/OccupancyDetection
 ```
 
 The output gives a probability for "0" (not occupied) and "1" (occupied). You can see that
-the model believes it's about 15% likely that this room is occupied.
+the model believes it's about 95% likely that this room is unoccupied.
 
 # Data
 
