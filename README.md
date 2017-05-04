@@ -2,8 +2,8 @@
 
 Data science is more than just modeling. The complete data science lifecycle also includes data
 engineering and model deployment. This project offers a simplified yet credible example of 
-all three elements, as implemented using [Apache Spark](http://spark.apache.org), 
-[Cloudera's Data Science Workbench](https://www.cloudera.com/products/data-science-and-engineering/data-science-workbench.html),
+all three elements, as implemented using [Apache Spark](http://spark.apache.org), the
+[Cloudera Data Science Workbench](https://www.cloudera.com/products/data-science-and-engineering/data-science-workbench.html),
 and [JPMML / OpenScoring](https://github.com/openscoring/openscoring).
 
 In this project, the ACME corporation is productionizing a connected-house platform. Part of this
@@ -24,10 +24,10 @@ This example project includes simplified examples of:
 
 ## Requirements
 
-- Cloudera Data Science Workbench
+- [Cloudera Data Science Workbench 1.0](https://www.cloudera.com/products/data-science-and-engineering/data-science-workbench.html)
 - CDH 5.10+ cluster
 - [Spark 2 CSD](https://www.cloudera.com/downloads/spark2/2-0.html) for CDH
-- [Apache Maven](http://maven.apache.org) 3.2+
+- [Apache Maven](https://maven.apache.org) 3.2+
 
 ## Get Started
 
