@@ -26,7 +26,7 @@ This example project includes simplified examples of:
 
 - [Cloudera Data Science Workbench 1.0](https://www.cloudera.com/products/data-science-and-engineering/data-science-workbench.html)
 - CDH 5.10+ cluster
-- [Spark 2 CSD](https://www.cloudera.com/downloads/spark2/2-0.html) for CDH
+- [Spark 2.1 CSD](https://www.cloudera.com/downloads/spark2/2-1.html) for CDH
 - [Apache Maven](https://maven.apache.org) 3.2+
 
 ## Get Started
