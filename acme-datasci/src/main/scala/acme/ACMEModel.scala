@@ -26,10 +26,7 @@ import org.apache.spark.ml.evaluation.BinaryClassificationEvaluator
 import org.apache.spark.ml.feature.VectorAssembler
 import org.apache.spark.ml.tuning.{ParamGridBuilder, TrainValidationSplit}
 import org.apache.spark.ml.{Pipeline, PipelineModel}
-import org.apache.spark.sql.SparkSession
 import scala.util.Random
-
-val spark = SparkSession.builder().getOrCreate()
 
 // Read and cache training data prepared from acme-dataeng:
 val training = ACMEData.readData()
