@@ -79,9 +79,20 @@
             </goals>
             <configuration>
               <relocations>
+                <!-- shade because Spark uses pmml-agent 1.2 -->
                 <relocation>
-                  <pattern>org.jpmml</pattern>
-                  <shadedPattern>acme.org.jpmml</shadedPattern>
+                  <pattern>org.jpmml.agent</pattern>
+                  <shadedPattern>acme.org.jpmml.agent</shadedPattern>
+                </relocation>
+                <!-- shade because Spark uses pmml-schema 1.2 -->
+                <relocation>
+                  <pattern>org.jpmml.schema</pattern>
+                  <shadedPattern>acme.org.jpmml.schema</shadedPattern>
+                </relocation>
+                <!-- shade because Spark uses pmml-model 1.2 -->
+                <relocation>
+                  <pattern>org.jpmml.model</pattern>
+                  <shadedPattern>acme.org.jpmml.model</shadedPattern>
                 </relocation>
                 <relocation>
                   <pattern>org.dmg.pmml</pattern>
