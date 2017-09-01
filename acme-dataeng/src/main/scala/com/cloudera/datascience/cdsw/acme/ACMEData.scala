@@ -6,7 +6,8 @@ import org.apache.spark.sql.{DataFrame, SparkSession}
 object ACMEData {
 
   /**
-   * Note that data should be set up by `upload-training-data.sh` before using this code.
+   * Note that data should be copied to hdfs:///tmp/datatraining.txt first;
+   * see README.md.
    *
    * @return DataFrame holding training data
    */
