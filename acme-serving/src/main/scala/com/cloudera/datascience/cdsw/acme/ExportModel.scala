@@ -1,35 +1,23 @@
 package com.cloudera.datascience.cdsw.acme
 
-import java.nio.charset.StandardCharsets
-import java.nio.file.StandardOpenOption._
-import java.nio.file.{Files, Paths}
-import javax.xml.transform.stream.StreamResult
-
-import org.dmg.pmml.Application
-import org.jpmml.model.JAXBUtil
-import org.jpmml.sparkml.ConverterUtil
+import java.nio.file.Paths
 
 import acme.ACMEModel
+import ml.combust.bundle.BundleFile
+import ml.combust.bundle.serializer.SerializationFormat
+import org.apache.spark.ml.bundle.SparkBundleContext
+import ml.combust.mleap.spark.SparkSupport._
+import resource.managed
 
 object ExportModel {
   
   def main(args: Array[String]): Unit = {
     val training = ACMEData.readData()
     val pipeline = ACMEModel.buildModel()
-    
-    val pmml = ConverterUtil.toPMML(training.schema, pipeline)
-    pmml.getHeader.setApplication(new Application("ACME Occupancy Detection"))
-    
-    val modelPath = Paths.get("src", "main", "resources")
-    if (!Files.exists(modelPath)) {
-      Files.createDirectory(modelPath)
-    }
-    val pmmlFile = modelPath.resolve("model.pmml")
-    val writer = Files.newBufferedWriter(pmmlFile, StandardCharsets.UTF_8, WRITE, CREATE, TRUNCATE_EXISTING)
-    try {
-      JAXBUtil.marshalPMML(pmml, new StreamResult(writer))
-    } finally {
-      writer.close()
+    val sbc = SparkBundleContext.defaultContext.withDataset(pipeline.transform(training))
+    val bundleFile = new java.io.File(Paths.get("src", "main", "resources", "model.zip").toString)
+    for(bf <- managed(BundleFile(bundleFile))) {
+      pipeline.writeBundle.format(SerializationFormat.Json).save(bf)(sbc).get
     }
   }
 

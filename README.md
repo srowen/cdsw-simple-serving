@@ -4,7 +4,7 @@ Data science is more than just modeling. The complete data science lifecycle als
 engineering and model deployment. This project offers a simplified yet credible example of 
 all three elements, as implemented using [Apache Spark](http://spark.apache.org), the
 [Cloudera Data Science Workbench](https://www.cloudera.com/products/data-science-and-engineering/data-science-workbench.html),
-and [JPMML / OpenScoring](https://github.com/openscoring/openscoring).
+and [MLeap](https://github.com/combust/mleap).
 
 In this project, the ACME corporation is productionizing a connected-house platform. Part of this
 service requires predicting the occupancy of a room given sensor readings.

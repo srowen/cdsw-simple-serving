@@ -18,9 +18,9 @@ object ACMEData {
     // Uh oh. The data actually has an extra ID column at the front! 
     // Needs to be dropped manually
     
-    val rawInput = "hdfs:///user/shendrickson/datatraining.txt"
-    val csvInput = "hdfs:///user/shendrickson/datatraining.csv"
-    
+    val rawInput = "hdfs:///tmp/datatraining.txt"
+    val csvInput = "hdfs:///tmp/datatraining.csv"
+
     val csvInputPath = new Path(csvInput)
     val fs = csvInputPath.getFileSystem(spark.sparkContext.hadoopConfiguration)
     if (fs.exists(csvInputPath)) {
