@@ -64,19 +64,19 @@
         <groupId>org.apache.spark</groupId>
         <artifactId>spark-core_${scala.minor.version}</artifactId>
         <version>${spark.version}</version>
-        <scope>compile</scope>
+        <scope>provided</scope>
       </dependency>
       <dependency>
         <groupId>org.apache.spark</groupId>
         <artifactId>spark-sql_${scala.minor.version}</artifactId>
         <version>${spark.version}</version>
-        <scope>compile</scope>
+        <scope>provided</scope>
       </dependency>
       <dependency>
         <groupId>org.apache.spark</groupId>
         <artifactId>spark-mllib_${scala.minor.version}</artifactId>
         <version>${spark.version}</version>
-        <scope>compile</scope>
+        <scope>provided</scope>
         <exclusions>
           <!-- avoids conflict with old JPMML from Spark -->
           <exclusion>
